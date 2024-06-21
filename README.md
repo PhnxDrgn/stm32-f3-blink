@@ -3,12 +3,9 @@ STM32 F3 NUCLEO board blink. This repo serves as a base project example for the 
 
 # Getting Started
 ## Requirements:
-- Docker Desktop: Tool used to make containers for consistent development environment.
-    - https://www.docker.com/products/docker-desktop/
-- STM32CubeMX: GUI for making board support packages (BSP)
-    - https://www.st.com/en/development-tools/stm32cubemx.html
-- STM32CubeProgrammer: Tool to read/write to STM32 memory. Used for flashing.
-    - https://www.st.com/en/development-tools/stm32cubeprog.html
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/): Tool used to make containers for consistent development environment.
+- [STM32CubeMX](https://www.st.com/en/development-tools/stm32cubemx.html): GUI for making board support packages (BSP)
+- [STM32CubeProgrammer](https://www.st.com/en/development-tools/stm32cubeprog.html): Tool to read/write to STM32 memory. Used for flashing.
 
 ## Generateing board support package files
 1. Open STM32BCubeMX
