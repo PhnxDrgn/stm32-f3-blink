@@ -8,12 +8,12 @@ void app()
     {
         static uint32_t refMillis = 0;
 
-        uint32_t currentMillis = BSP_millis();
+        uint32_t currentMillis = millis();
 
         if (currentMillis - refMillis > 1000)
         {
             refMillis = currentMillis;
-            BSP_toggleLed();
+            toggleLed();
         }
     }
 }
