@@ -1,1 +1,0 @@
-docker build -t cmake-on-stm32 .
