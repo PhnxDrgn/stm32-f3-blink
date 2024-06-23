@@ -1,7 +1,16 @@
 # stm32-f3-blink
-STM32 F3 NUCLEO board blink. This repo serves as a base project example for the NUCLEO-F303K8.
+STM32 F3 NUCLEO board blink. This repo serves as a base project example/template for the NUCLEO-F303K8. The "blink" app is ran using a bare-metal implementation. STM32CubeMX has an option to add in FreeRTOS but that is not shown in this repo.
 
-# Getting Started
+## Table of Contents
+- [Requirements](#requirements)
+- [Generateing board support package files](#generateing-board-support-package-files)
+- [Setting up Docker](#setting-up-docker)
+    - [Developing in Docker](#developing-in-docker)
+- [Setting up functions in the bsp `main.c`](#setting-up-functions-in-the-bsp-mainc)
+- [Building the executable](#building-the-executable)
+    - [Building using VS Code CMake extention](#building-using-vs-code-cmake-extention)
+    - [Building manually](#building-manually)
+
 ## Requirements:
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/): Tool used to make containers for consistent development environment.
 - [STM32CubeMX](https://www.st.com/en/development-tools/stm32cubemx.html): GUI for making board support packages (BSP)
@@ -27,15 +36,22 @@ VS Code Extensions (Can be installed within VS Code)
     - This should generate files in the `bsp/nucleo_f3` directory
 
 ## Setting up Docker
-Using the `docker_start.sh` script requires the ability to use bash. Linux systems can run it natively but Windows might require some setup. I personally use open a GitBash terminal in VS code to run it.
+1. Start Docker Desktop
+2. Using the `docker_start.sh` script requires the ability to use bash. Linux systems can run it natively but Windows might require some setup. I personally use open a GitBash terminal in VS code to run it.
 
-Running the `docker_start.sh` script:
-```
-./docker_start.sh
-```
-The script runs docker in detetched mode (-d) so if you want to attach to it, you can run `docker attach stm32-f3-blink`. The script also names the container the same name as the directory.
+    Running the `docker_start.sh` script:
+    ```
+    ./docker_start.sh
+    ```
+    The script runs docker in detetched mode (-d) so if you want to attach to it, you can run `docker attach stm32-f3-blink`. The script also names the container the same name as the directory.
 
 ### Developing in Docker
+After Docker is started, you can use the VS Code extension Dev Container and attach to a Docker container using the `Attach to Running Container...` command.
+The directory that is set up as the volume and working directory for the project is under `/home/project`.
+
+In the VS Code window that opened up for the container, navigate to that directory.
+
+From here, make sure you have CMake Tools installed for VS Code because it would make it easier to configure/build the project. Details for building are below in [Building using VS Code CMake extention](#building-using-vs-code-cmake-extention)
 
 ## Setting up functions in the bsp `main.c`
 1. The `app.c` file calls a function named `millis` and `toggleLed`. These functions are not yet set up.
