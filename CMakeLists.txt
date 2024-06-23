@@ -93,5 +93,6 @@ add_custom_command(TARGET ${EXECUTABLE}
 
 add_custom_command(TARGET ${EXECUTABLE}
     POST_BUILD
-        COMMAND arm-none-eabi-objcopy -O ihex ${EXECUTABLE} ${PROJECT_NAME}.hex
-        COMMAND arm-none-eabi-objcopy -O binary ${EXECUTABLE} ${PROJECT_NAME}.bin)
+        COMMAND arm-none-eabi-objcopy -O ihex ${EXECUTABLE} ${PROJECT_NAME}.hex # generate .hex file of executable
+        COMMAND arm-none-eabi-objcopy -O binary ${EXECUTABLE} ${PROJECT_NAME}.bin # generate .bin file. Depending on setup, the start address can change. Default is 0x08000000
+        COMMAND ${CMAKE_COMMAND} -E copy ${EXECUTABLE} debug.elf) # make a copy named debug so debug setup can be consistant 
