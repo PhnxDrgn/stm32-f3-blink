@@ -7,7 +7,8 @@ RUN apt-get update && \
     build-essential \
     wget \
     curl \
-    cmake
+    cmake \
+    openocd
 
 # Set up a development tools directory
 WORKDIR /home/dev
@@ -17,4 +18,4 @@ RUN wget -qO- https://developer.arm.com/-/media/Files/downloads/gnu-rm/10.3-2021
 
 ENV PATH $PATH:/home/dev/gcc-arm-none-eabi-10.3-2021.10/bin
 
-WORKDIR /home/app
+WORKDIR /home/project
